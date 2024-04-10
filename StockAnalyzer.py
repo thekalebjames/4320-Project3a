@@ -3,6 +3,11 @@ import pygal
 import webbrowser
 from lxml import html
 from datetime import datetime
+from flask import Flask, render_template, request, url_for, redirect, abort
+
+#make a flask application
+app = Flask(__name__)
+app.config["Debug"] = True
 
 #API Info
 api_key = "QGB4RG9L7AWT1713"
