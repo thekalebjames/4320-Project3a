@@ -21,7 +21,7 @@ tree = html.fromstring(response.text)
 stk_symbl = input("Enter the stock symbol: ")
 
 #Getting Chart Type
-while True;
+while True:
   print("\n----------Chart Type----------\n")
   chrt_type = input("Enter Chart Type\n1) Line chart \n2) Bar chart")
   if chrt_type in ["1", "2"]:
@@ -65,12 +65,12 @@ while True:
 while True:
     print("-------------End Date-------------\n")
     end_date = input("\nEnter End Date (YYYY-MM-DD): ")
-        try:
-            datetime.strptime(end_date, '%Y,%m,%d')
-            if end_date >= start_date:
-                break
-            else:
-                print("The end date shound't be before the start date")
+    try:
+        datetime.strptime(end_date, '%Y,%m,%d')
+        if end_date >= start_date:
+            break
+        else:
+            print("The end date shound't be before the start date")
         except ValueError:
             print("\nInvalid format. Please use YYYY-MM-DD format")
 
