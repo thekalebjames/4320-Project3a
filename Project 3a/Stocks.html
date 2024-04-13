@@ -1,0 +1,45 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+ <link rel="stylesheet" href="{{ url_for ('static', filename='css/forms.css') }}">
+{% end block %}
+
+{% block content %}
+ <div class="formwrapper">
+    <h2 class="title">Stock Data Visualizer</h2>
+    {% if err %}
+        <p>{{ err }}</p>
+    {% end if  %}
+    <form method="POST" action="/stocks">
+        {{ form.csrf_token }}
+        <div class="form-field">{{ form.symbol.label }} {{ form.symbol }}
+            {% if form.symbols.errors %}
+                <ul class="errors"></ul>
+                    <li>{{ error }} </li>
+                </ul>
+        </div>
+        <div class="form-field">
+            <ul class="errors">
+                <li>{{ error }}</li>
+            </ul>
+        </div>
+        <div class="form-field">
+            <ul class="errors">
+                <li>{{ error }}</li>
+            </ul>
+        </div>
+        <div class="form-field">
+            <ul class="errors">
+                <li>{{ error }}</li>
+            </ul>
+        </div>
+        <div class="form-field">
+            <ul class="errors">
+                <li>{{ error }}</li>
+            </ul>
+        </div>
+    </form>
+        <div id="chart">
+            <embed type="image/svg+xml" src={{ chart|safe }} />
+        </div>
+ </div>
